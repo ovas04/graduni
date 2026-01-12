@@ -8,7 +8,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://graduni.github.io',
-  baseUrl: '/',
+  baseUrl: '/graduni/',
 
   organizationName: 'graduni',
   projectName: 'graduni',
