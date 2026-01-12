@@ -195,7 +195,7 @@ function HeroSection() {
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </Link>
-          <Link to="/docs/category/guías-por-facultad" className={styles.btnSecondary}>
+          <Link to="/docs/fiis/egreso" className={styles.btnSecondary}>
             <span>Ver facultades</span>
           </Link>
         </div>
