@@ -1,0 +1,28 @@
+name: Lint Markdown
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**/*.mdx'
+
+jobs:
+  lint-markdown:
+    name: Check Markdown Format & Style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint Markdown files
+        run: npm run lint:md
