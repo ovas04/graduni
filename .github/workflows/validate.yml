@@ -1,0 +1,22 @@
+name: Validate PR
+
+on:
+  pull_request:
+    paths-ignore:
+      - ".github/**"
+      - "src/test/**"
+      - ".gitignore"
+      - "README.md"
+
+jobs:
+  validate:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Install dependencies
+        run: npm ci
+      - name: Build site to catch errors
+        run: npm run build
