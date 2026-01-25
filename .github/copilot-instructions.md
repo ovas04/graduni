@@ -155,6 +155,6 @@ npm run clear
 
 ## Important Links
 
-- Repo: https://github.com/graduni/graduni
+- Repo: https://github.com/ovas04/graduni
 - UNI: https://www.uni.edu.pe
 - SUNEDU: https://enlinea.sunedu.gob.pe/

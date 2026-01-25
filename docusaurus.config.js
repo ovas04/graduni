@@ -33,7 +33,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/graduni/graduni/tree/main/',
+          editUrl: 'https://github.com/ovas04/graduni/tree/main/',
         },
         blog: false,
         theme: {
@@ -62,18 +62,18 @@ const config = {
             position: 'left',
           },
           {
-            to: '/docs/plantillas',
-            label: 'Plantillas',
-            position: 'left',
-          },
-          {
-            to: '/docs/aportar',
+            to: '/docs/guias/aportar',
             label: 'Aportar',
             position: 'right',
             className: 'navbar-cta-button',
           },
           {
-            href: 'https://github.com/graduni/graduni',
+            to: '/comunidad',
+            label: 'Comunidad',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/ovas04/graduni',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
@@ -86,18 +86,18 @@ const config = {
           {
             title: 'Guías',
             items: [
-              { label: 'Ruta Rápida', to: '/docs/ruta-rapida' },
-              { label: 'Egreso', to: '/docs/fiis/egreso' },
-              { label: 'Bachillerato', to: '/docs/fiis/bachiller' },
-              { label: 'Titulación', to: '/docs/fiis/titulo' },
+              { label: 'Ruta Rápida', to: '/docs/guias/ruta-rapida' },
+              { label: 'Egreso', to: '/docs/guias/fiis/egreso' },
+              { label: 'Bachillerato', to: '/docs/guias/fiis/bachiller' },
+              { label: 'Titulación', to: '/docs/guias/fiis/titulo' },
             ],
           },
           {
             title: 'Recursos',
             items: [
-              { label: 'Plantillas', to: '/docs/plantillas' },
-              { label: 'FAQ', to: '/docs/faq' },
-              { label: 'Aportar', to: '/docs/aportar' },
+              { label: 'Plantillas', to: '/docs/guias/plantillas' },
+              { label: 'FAQ', to: '/docs/guias/faq' },
+              { label: 'Aportar', to: '/docs/guias/aportar' },
             ],
           },
           {
@@ -105,7 +105,7 @@ const config = {
             items: [
               { label: 'UNI - Página Oficial', href: 'https://www.uni.edu.pe' },
               { label: 'FIIS', href: 'https://fiis.uni.edu.pe' },
-              { label: 'GitHub', href: 'https://github.com/graduni/graduni' },
+              { label: 'GitHub', href: 'https://github.com/ovas04/graduni' },
             ],
           },
         ],

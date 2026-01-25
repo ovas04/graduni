@@ -48,7 +48,7 @@ Este sitio está construido con [Docusaurus 2](https://docusaurus.io/).
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/graduni/graduni.git
+git clone https://github.com/ovas04/graduni.git
 cd graduni
 
 # Instalar dependencias

@@ -1,0 +1,184 @@
+git clone https://github.com/TU_USUARIO/graduni.git
+git remote add upstream https://github.com/ovas04/graduni.git
+docs: update FAQ with new questions
+# Contributing to GradUNI
+
+Thank you for your interest in helping GradUNI.
+
+## Ways to Contribute
+
+### Report bugs or issues
+
+1. Review existing [issues](https://github.com/ovas04/graduni/issues) to avoid duplicates.
+2. If the problem is new, open an issue that includes:
+   - A clear description of the problem and its impact
+   - Steps to reproduce it
+   - Screenshots or recordings when helpful
+   - Browser and device information
+
+### Suggest improvements
+
+1. Open a new [issue](https://github.com/ovas04/graduni/issues/new).
+2. Describe the proposed improvement and the motivation behind it.
+3. Explain how it benefits UNI students.
+4. Attach mockups, diagrams, or references if available.
+
+### Contribute content or code
+
+#### Faculty-specific information
+- Add or update procedures for your faculty.
+- Correct outdated or inaccurate steps.
+- Share templates, formats, or checklists that proved useful.
+
+#### Technical enhancements
+- Fix functional bugs or regressions.
+- Improve the UI/UX and accessibility.
+- Optimize performance.
+- Build new, scoped features aligned with the roadmap.
+
+## Development Flow (Trunk-Based Development)
+
+We follow Trunk-Based Development to keep integration fast and predictable.
+
+### Initial setup
+
+```bash
+# 1. Fork the repository on GitHub
+# 2. Clone your fork
+git clone https://github.com/YOUR_USER/graduni.git
+cd graduni
+
+# 3. Add the upstream remote
+git remote add upstream https://github.com/ovas04/graduni.git
+
+# 4. Install dependencies
+npm install
+
+# 5. Start the dev server
+npm start
+```
+
+### Contribution workflow
+
+```mermaid
+flowchart TD
+  A[Sync main from upstream] --> B[Create short-lived branch]
+  B --> C[Implement scoped changes]
+  C --> D[Run npm run build]
+  D --> E[Push branch to origin]
+  E --> F[Open draft pull request]
+  F --> G[Request maintainer review]
+  G --> H[Address feedback]
+  H --> I[Squash and merge via maintainer]
+```
+
+1. Keep your main branch up to date:
+   ```bash
+   git checkout main
+   git pull upstream main
+   git push origin main
+   ```
+2. Create a short-lived feature branch (target two to three days maximum):
+   ```bash
+   git checkout -b feature/brief-description
+   ```
+3. Commit in small, focused increments:
+   ```bash
+   git add .
+   git commit -m "feat: add concise summary"
+   ```
+4. Push early and often:
+   ```bash
+   git push origin feature/brief-description
+   ```
+5. Open a pull request as soon as the direction is clear. Use a descriptive title, explain the change, add screenshots for UI updates, and reference related issues.
+
+### Review and merge
+
+- Each pull request requires approval from at least one code owner.
+- Current code owners are @ovas04, @drew2hip544, and @NaoDekoNeko.
+- Reviews focus on accuracy, coherence with existing docs, responsiveness, accessibility, and convention compliance.
+- Use squash-and-merge only; delete feature branches after merge and resync main frequently.
+
+## Conventions
+
+### Commit messages
+
+We follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat: add FIGMM graduation requirements
+fix: correct FIIS thesis submission deadline
+docs: update contribution guidelines
+style: improve mobile responsiveness for cards
+```
+
+### Branch naming
+
+- feature/short-description
+- fix/bug-identifier
+- docs/topic-name
+- hotfix/urgent-action
+
+### Code standards
+
+- Use English for code, comments, variables, and filenames.
+- Keep user-facing content in Spanish.
+- Avoid emojis in code; prefer inline SVG icons.
+- Support dark mode for UI changes.
+- Prefer CSS Modules for component-level styles.
+
+## Testing
+
+```bash
+# Verify the build
+npm run build
+
+# Serve the production build locally
+npm run serve
+
+# Clear caches if something looks off
+npm run clear
+```
+
+## Accessibility checklist
+
+- Use semantic HTML elements.
+- Provide descriptive aria-label attributes for interactive icons.
+- Maintain sufficient color contrast in both themes.
+- Ensure keyboard navigation works end to end.
+- Smoke-test with a screen reader when possible.
+
+## Style guide
+
+### Color palette
+
+- Burgundy: `#7c2d36`
+- Dark Burgundy: `#5c1f28`
+- Cream: `#f5f0e6`
+- Slate: `#1e293b`
+
+### Iconography
+
+- Use Lucide/Feather-inspired inline SVG icons.
+- Avoid emojis in user-facing prose.
+- Provide aria-label attributes for links and buttons that rely on icons.
+
+## Community expectations
+
+- Keep discussions respectful and constructive.
+- Share context and decisions that affect collaborators.
+- Help other contributors understand UNI processes.
+- Label personal experiences clearly to avoid confusion with official guidance.
+
+## Questions and support
+
+- Issues: https://github.com/ovas04/graduni/issues
+- Discussions: https://github.com/ovas04/graduni/discussions
+- Maintainers: @ovas04, @drew2hip544, @NaoDekoNeko
+
+## License
+
+By contributing, you agree that your contributions will be licensed under the project's MIT License.
+
+Thank you for helping UNI students navigate their academic journey.
