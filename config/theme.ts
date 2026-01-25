@@ -1,0 +1,101 @@
+import type { Config } from '@docusaurus/types';
+import type { ThemeConfig } from '@docusaurus/preset-classic';
+import { themes as prismThemes } from 'prism-react-renderer';
+
+/**
+ * Theme configuration including navbar, footer, and appearance
+ */
+export const themeConfig: ThemeConfig = {
+  image: 'img/graduni-social-card.png',
+  
+  // Navbar configuration
+  navbar: {
+    title: 'GradUNI',
+    logo: {
+      alt: 'GradUNI Logo',
+      src: 'img/logo.png',
+    },
+    hideOnScroll: false,
+    items: [
+      {
+        type: 'docSidebar',
+        sidebarId: 'mainSidebar',
+        label: 'Guías',
+        position: 'left',
+      },
+      {
+        to: '/docs/guias/plantillas',
+        label: 'Plantillas',
+        position: 'left',
+      },
+      {
+        to: '/docs/guias/aportar',
+        label: 'Aportar',
+        position: 'right',
+        className: 'navbar-cta-button',
+      },
+      {
+        to: '/comunidad',
+        label: 'Comunidad',
+        position: 'right',
+      },
+      {
+        href: 'https://github.com/ovas04/graduni',
+        position: 'right',
+        className: 'header-github-link',
+        'aria-label': 'GitHub repository',
+      },
+    ],
+  },
+
+  // Footer configuration
+  footer: {
+    style: 'dark',
+    links: [
+      {
+        title: 'Guías',
+        items: [
+          { label: 'Ruta Rápida', to: '/docs/guias/ruta-rapida' },
+          { label: 'Egreso', to: '/docs/guias/fiis/egreso' },
+          { label: 'Bachillerato', to: '/docs/guias/fiis/bachiller' },
+          { label: 'Titulación', to: '/docs/guias/fiis/titulo' },
+        ],
+      },
+      {
+        title: 'Recursos',
+        items: [
+          { label: 'Plantillas', to: '/docs/guias/plantillas' },
+          { label: 'FAQ', to: '/docs/guias/faq' },
+          { label: 'Aportar', to: '/docs/guias/aportar' },
+        ],
+      },
+      {
+        title: 'Enlaces',
+        items: [
+          { label: 'UNI - Página Oficial', href: 'https://www.uni.edu.pe' },
+          { label: 'FIIS', href: 'https://fiis.uni.edu.pe' },
+          { label: 'GitHub', href: 'https://github.com/ovas04/graduni' },
+        ],
+      },
+    ],
+    copyright: `
+      <div class="footer-disclaimer">
+        ⚠️ <strong>Información referencial</strong>: Verifique siempre con su facultad las últimas actualizaciones.
+      </div>
+      <div>Copyright © ${new Date().getFullYear()} GradUNI. Hecho con ❤️ por estudiantes de la UNI.</div>
+    `,
+  },
+
+  // Code highlighting with Prism
+  prism: {
+    theme: prismThemes.github,
+    darkTheme: prismThemes.dracula,
+  },
+
+  // Color mode configuration
+  colorMode: {
+    defaultMode: 'light',
+    disableSwitch: false,
+    respectPrefersColorScheme: true,
+  },
+};
