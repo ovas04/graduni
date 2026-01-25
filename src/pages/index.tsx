@@ -1,28 +1,39 @@
+import React, { useState, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
-import { useState, useEffect, useRef } from 'react';
 
 import styles from './index.module.css';
 
 // Animated Background with Particles
-function AnimatedBackground() {
-  const canvasRef = useRef(null);
+function AnimatedBackground(): React.JSX.Element {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let animationId;
-    let particles = [];
+    if (!ctx) return;
+
+    let animationId: number;
+    let particles: Particle[] = [];
     
-    const resize = () => {
+    interface Particle {
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      opacity: number;
+    }
+    
+    const resize = (): void => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
     
-    const createParticles = () => {
+    const createParticles = (): void => {
       particles = [];
       const count = Math.floor((canvas.width * canvas.height) / 18000);
       for (let i = 0; i < count; i++) {
@@ -37,7 +48,7 @@ function AnimatedBackground() {
       }
     };
     
-    const animate = () => {
+    const animate = (): void => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach((p, i) => {
@@ -80,7 +91,7 @@ function AnimatedBackground() {
       animationId = requestAnimationFrame(animate);
     };
     
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent): void => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
     
@@ -88,12 +99,17 @@ function AnimatedBackground() {
     createParticles();
     animate();
     
-    window.addEventListener('resize', () => { resize(); createParticles(); });
+    const handleResize = (): void => { 
+      resize(); 
+      createParticles(); 
+    };
+    
+    window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
     
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
@@ -102,7 +118,15 @@ function AnimatedBackground() {
 }
 
 // Feature Card Component
-function FeatureCard({ icon, title, description, to, delay }) {
+interface FeatureCardProps {
+  icon: React.JSX.Element;
+  title: string;
+  description: string;
+  to: string;
+  delay: number;
+}
+
+function FeatureCard({ icon, title, description, to, delay }: FeatureCardProps): React.JSX.Element {
   return (
     <Link to={to} className={styles.featureCard} style={{ animationDelay: `${delay}ms` }}>
       <div className={styles.featureIcon}>{icon}</div>
@@ -114,7 +138,17 @@ function FeatureCard({ icon, title, description, to, delay }) {
 }
 
 // Step Card for Process Section
-function StepCard({ number, title, duration, cost, icon, isActive, onClick }) {
+interface StepCardProps {
+  number: number;
+  title: string;
+  duration: string;
+  cost: string;
+  icon: React.JSX.Element;
+  isActive: boolean;
+  onClick: () => void;
+}
+
+function StepCard({ number, title, duration, cost, icon, isActive, onClick }: StepCardProps): React.JSX.Element {
   return (
     <div 
       className={clsx(styles.stepCard, isActive && styles.stepCardActive)} 
@@ -146,7 +180,13 @@ function StepCard({ number, title, duration, cost, icon, isActive, onClick }) {
 }
 
 // Stat Counter
-function StatItem({ number, label, icon }) {
+interface StatItemProps {
+  number: string;
+  label: string;
+  icon: React.JSX.Element;
+}
+
+function StatItem({ number, label, icon }: StatItemProps): React.JSX.Element {
   return (
     <div className={styles.statItem}>
       <div className={styles.statIcon}>{icon}</div>
@@ -157,7 +197,7 @@ function StatItem({ number, label, icon }) {
 }
 
 // Hero Section
-function HeroSection() {
+function HeroSection(): React.JSX.Element {
   const [titleIndex, setTitleIndex] = useState(0);
   const titles = [
     'profesional titulado',
@@ -205,10 +245,19 @@ function HeroSection() {
 }
 
 // Process Section - Horizontal Timeline
-function ProcessSection() {
+interface Step {
+  number: number;
+  title: string;
+  duration: string;
+  cost: string;
+  icon: React.JSX.Element;
+  details: string[];
+}
+
+function ProcessSection(): React.JSX.Element {
   const [activeStep, setActiveStep] = useState(1);
   
-  const steps = [
+  const steps: Step[] = [
     {
       number: 1,
       title: 'Egreso',
@@ -235,7 +284,7 @@ function ProcessSection() {
     }
   ];
 
-  const activeStepData = steps.find(s => s.number === activeStep);
+  const activeStepData = steps.find(s => s.number === activeStep)!;
 
   return (
     <section className={styles.processSection}>
@@ -315,8 +364,8 @@ function ProcessSection() {
 }
 
 // Features Section
-function FeaturesSection() {
-  const features = [
+function FeaturesSection(): React.JSX.Element {
+  const features: Omit<FeatureCardProps, 'delay'>[] = [
     {
       icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
       title: 'Ruta Rápida',
@@ -361,7 +410,7 @@ function FeaturesSection() {
 }
 
 // Main Component
-export default function Home() {
+export default function Home(): React.JSX.Element {
   return (
     <Layout
       title="Guía de Egreso UNI"

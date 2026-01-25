@@ -37,12 +37,13 @@ Próximamente:
 
 ## 🚀 Desarrollo Local
 
-Este sitio está construido con [Docusaurus 2](https://docusaurus.io/).
+Este sitio está construido con [Docusaurus 3](https://docusaurus.io/) y **TypeScript**.
 
 ### Requisitos
 
 - Node.js >= 18.0
 - npm o yarn
+- TypeScript (instalado automáticamente)
 
 ### Instalación
 
@@ -69,6 +70,15 @@ npm run serve    # Sirve el build de producción
 npm run clear    # Limpia la caché
 ```
 
+### 🔧 Stack Técnico
+
+- **Framework**: Docusaurus 3.7.0
+- **Lenguaje**: TypeScript
+- **React**: 18.3.1
+- **Estilos**: CSS Modules
+- **Documentación**: MDX
+- **Arquitectura**: Configuración modular en `config/`
+
 ## 🤝 Contribuir
 
 ¡Tu contribución es bienvenida! Hay muchas formas de ayudar:
@@ -91,16 +101,17 @@ npm run clear    # Limpia la caché
 
 ```
 graduni/
-├── docs/                 # Documentación MDX
-│   ├── fiis/            # Guías de FIIS
-│   ├── facultades/      # Otras facultades
-│   └── ...
+├── config/                    # Configuración modular (TypeScript)
+├── docs/                      # Documentación MDX por facultad
+│   ├── fiis/                 # Guías de FIIS
+│   └── ...                   # Otras facultades
 ├── src/
-│   ├── css/             # Estilos personalizados
-│   └── pages/           # Páginas React
-├── static/              # Archivos estáticos
-├── docusaurus.config.js # Configuración principal
-└── sidebars.js          # Configuración de navegación
+│   ├── pages/                # Páginas (TypeScript)
+│   └── css/                  # Estilos globales
+├── static/                    # Assets estáticos
+├── docusaurus.config.ts      # Configuración principal (TypeScript)
+├── sidebars.js               # Estructura de navegación
+└── tsconfig.json             # Configuración TypeScript
 ```
 
 ## 📋 Roadmap
