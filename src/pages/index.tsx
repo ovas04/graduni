@@ -229,7 +229,7 @@ function HeroSection(): React.JSX.Element {
           La guía más completa para tu proceso de egreso, bachillerato y titulación en la Universidad Nacional de Ingeniería.
         </p>
         <div className={styles.heroActions}>
-          <Link to="/docs/ruta-rapida" className={styles.btnPrimary}>
+          <Link to="/docs/guias/ruta-rapida" className={styles.btnPrimary}>
             <span>Explorar guía</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -350,7 +350,7 @@ function ProcessSection(): React.JSX.Element {
                 ))}
               </ul>
             </div>
-            <Link to="/docs/ruta-rapida" className={styles.detailsLink}>
+            <Link to="/docs/guias/ruta-rapida" className={styles.detailsLink}>
               Ver guía completa
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -370,25 +370,25 @@ function FeaturesSection(): React.JSX.Element {
       icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
       title: 'Ruta Rápida',
       description: 'Resumen visual de todo el proceso.',
-      to: '/docs/ruta-rapida'
+      to: '/docs/guias/ruta-rapida'
     },
     {
       icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>,
       title: 'Plantillas',
       description: 'Formatos oficiales listos para usar.',
-      to: '/docs/plantillas'
+      to: '/docs/guias/plantillas'
     },
     {
       icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>,
       title: 'FAQ',
       description: 'Respuestas a preguntas frecuentes.',
-      to: '/docs/faq'
+      to: '/docs/guias/faq'
     },
     {
       icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
       title: 'Comunidad',
       description: 'Contribuye y ayuda a otros.',
-      to: '/docs/aportar'
+      to: '/docs/guias/aportar'
     }
   ];
 

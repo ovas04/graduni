@@ -49,7 +49,7 @@ Este sitio está construido con [Docusaurus 3](https://docusaurus.io/) y **TypeS
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/graduni/graduni.git
+git clone https://github.com/ovas04/graduni.git
 cd graduni
 
 # Instalar dependencias
